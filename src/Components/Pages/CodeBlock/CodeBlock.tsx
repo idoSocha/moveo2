@@ -13,8 +13,6 @@ function CodeBlock(): JSX.Element {
   const [code, setCode] = useState("");
   const [title, setTitle] = useState("");
   const [mentor, setMentor] = useState(false);
-  const params = useParams();
-  const id = params.id;
 
   // reaching the server on any change on the editor
   const sendCode = (e: string) => {
