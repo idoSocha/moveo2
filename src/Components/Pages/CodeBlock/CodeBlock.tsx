@@ -13,6 +13,8 @@ function CodeBlock(): JSX.Element {
   const [code, setCode] = useState("");
   const [title, setTitle] = useState("");
   const [mentor, setMentor] = useState(false);
+  const params = useParams();
+  const id = params.id;
 
   // reaching the server on any change on the editor
   const sendCode = (e: string) => {
@@ -49,7 +51,7 @@ function CodeBlock(): JSX.Element {
     socket.on("receive-code-block", (newCode) => {
       setCode(newCode);
     });
-  }, [socket]);
+  }, [socket, id]);
 
   return (
     <div className="CodeBlock">
